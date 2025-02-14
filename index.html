@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fanoosa VideoPlayer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #video-container {
+            position: relative;
+            width: 80%;
+            background-color: black;
+            overflow: hidden;
+        }
+        #video-container:fullscreen {
+            width: 100%;
+            height: 100%;
+        }
+        #video-container:fullscreen #FVideoPlayer {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+
+    <!-- FVideoPlayer -->
+    <link href="FanoosaVideoPlayer.min.css" rel="stylesheet" type="text/css">
+    <script src="FanoosaVideoPlayer.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="video-container">
+    <video id="FVideoPlayer" poster="thumbnail.png">
+        <source src="video.mp4" type="video/mp4">
+        مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+    </video>
+    <div id="video-cards">
+        <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:10">وب سایت ما</a>
+        <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:65">پشتیبانی</a>
+        <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="01:20:01">خرید پکیج</a>
+    </div>
+</div>
+
+<!-- FVideoPlayer -->
+<script>
+    const config = {
+        videoContainerId: 'video-container',
+        controls: {
+            playPause: true,
+            volume: true,
+            fullscreen: true,
+            speed: true,
+            progressBar: true,
+            centerPlayPause: true
+        },
+        defaultVolume: 1,
+        defaultSpeed: 1,
+        speedOptions: [0.5, 1, 1.5, 2],
+        hideControlsTimeout: 1000,
+        showCards: true,
+        hideCardsTimeout: 5000
+    };
+
+    const player = new VideoPlayer(config);
+</script>
+</body>
+</html>
