@@ -38,6 +38,11 @@
         <source src="video.mp4" type="video/mp4">
         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
     </video>
+
+    <video id="FVideoPlayerAd">
+        <source src="ad.mp4" data-link="https://example.com" data-title="شهر فرش" type="video/mp4">
+    </video>
+
     <div id="video-cards">
         <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:10">وب سایت ما</a>
         <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:65">پشتیبانی</a>
@@ -62,7 +67,11 @@
         speedOptions: [0.5, 1, 1.5, 2],
         hideControlsTimeout: 1000,
         showCards: true,
-        hideCardsTimeout: 5000
+        hideCardsTimeout: 5000,
+        adConfig: {
+            showAd: true,
+            adCountdownDuration: 5,
+        }
     };
 
     const player = new VideoPlayer(config);

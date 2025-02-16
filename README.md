@@ -8,6 +8,7 @@ Fanoosa Video Player is a lightweight, customizable, and responsive HTML5 video 
 
 - **Customizable Controls**: Play/Pause, Volume, Fullscreen, Speed Control, Progress Bar, and Center Play/Pause button.
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices.
+- **Video Ad**: Play an ad before loading the main video (with a skip option, defaulting to 5 seconds after playback).
 - **Video Cards**: Display interactive cards at specific timestamps during video playback.
 - **Keyboard Shortcuts**: Control playback using keyboard shortcuts (e.g., Space, Arrow Keys, etc.).
 - **Loading Spinner**: Displays a loading spinner while the video is buffering.
@@ -35,6 +36,9 @@ To use Fanoosa Video Player in your project, simply include the necessary CSS an
             <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <video id="FVideoPlayerAd">
+          <source src="ad.mp4" data-link="https://example.com" data-title="example" type="video/mp4">
+        </video>
         <div id="video-cards">
             <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:10">Visit Our Website</a>
             <a href="#" class="FVideoPlayerCard" target="_blank" data-card-time="00:65">Support</a>
@@ -58,7 +62,11 @@ To use Fanoosa Video Player in your project, simply include the necessary CSS an
             speedOptions: [0.5, 1, 1.5, 2],
             hideControlsTimeout: 1000,
             showCards: true,
-            hideCardsTimeout: 5000
+            hideCardsTimeout: 5000,
+            adConfig: {
+              showAd: true,
+              adCountdownDuration: 5,
+            }
         };
 
         const player = new VideoPlayer(config);
@@ -99,6 +107,10 @@ The player can be customized using the following configuration options:
 
 - **hideCardsTimeout**: Time in milliseconds before the video cards are hidden.
 
+
+- **adConfig**: These settings control the behavior of ads in the video player.
+  - **showAd**: Enable/disable ads before or during the video.
+  - **adCountdownDuration**: Duration (in seconds) before the ad can be skipped.
 
 ## Keyboard Shortcuts
 
